@@ -1,0 +1,13 @@
+# Cloud Computing Overview.
+- Cloud Related Services:
+  - Iaas
+  - Paas
+  - Saas
+- Virtualization
+- Hyperviser or virtual machine monitor.
+- Why containers are different?
+- Benefits of cloud computing.
+- Risks of cloud computing.
+- Private cloud.
+- Hybrid cloud.
+- Public cloud.
