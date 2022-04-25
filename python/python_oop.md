@@ -789,7 +789,6 @@ graph BT;
 
 Two childs importing from one parent.
 
-
 ```python
 class Stream:
     def __init__(self):
@@ -805,7 +804,7 @@ class NetworkStream(Stream):
     def read(self):
         print("Reading data from a network")
 
-````
+```
 
 ## **Abstract Base Class:**
 
@@ -1196,13 +1195,117 @@ Output:
 4
 False
 ```
-	if not nums:
-		return 0
 
-	curSum = maxSum = nums[0]
-	for num in nums[1:]:
-		# select that next num value that is greater than the previous currentSum
-		curSum = max(num, curSum + num)
-		maxSum = max(maxSum, curSum)
+## **13. Association:**
 
-	return maxSum
+Composition and aggregation are specialised form of Association. Whereas Association is a relationship between two classes without any rules.
+
+### **Types:**
+
+1. Composition
+2. Association
+
+```mermaid
+flowchart TB
+Association--Has-a-->Composition;
+Association--Has-a-->Aggregation;
+```
+
+### **13.1 Composition:**
+
+By creating the object we can access the members of one class inside another class.
+
+In other words, one class is **parent** and other class is **child**. and if you delete the child object then all of its parents objects are also deleted.
+
+> **Note:** In composition, objects can not exist independently. Because child class has the object of parent class.
+
+This type of relationship is known as **Has-A Relation.**
+
+```mermaid
+flowchart TB;
+id1([CompositeClass])--Has-a-->id2([ComponentClass]);
+
+```
+
+```python
+# parent class
+class Salary:
+    def __init__(self,pay):
+        self.pay=pay
+
+    def get_total(self):
+       return (self.pay*12)
+
+# child class
+class Employee:
+    def __init__(self,pay,bonus):
+        self.pay=pay
+        self.bonus=bonus
+
+        # object of Salary class is created here in Employee class
+        self.obj_salary=Salary(self.pay)
+
+    def annual_salary(self):
+        return self.obj_salary.get_total() + self.bonus
+
+# child object
+obj_emp=Employee(100,10)
+
+print (obj_emp.annual_salary())
+----------------------------
+Output:
+1210
+```
+
+### **13.2 Composition vs Inheritance**
+
+- **Inheritance:** It will extend the parent functionality with extra features allows `overriding of methods`.
+
+- **Composition:** It can only use parent class as it is. It cannot modify or extend the functionality of it.
+
+### **13.3 Aggregation:**
+
+Aggregation is a weak form of association.
+
+> **Note:** Objects can exist independently in this relationship. Because unlike composition parent class objects are not created inside child class.
+
+```mermaid
+flowchart LR;
+Engine--composition-->Car;
+Pages--aggregation-->Book;
+
+```
+
+If you delete the child object, parent objects can live without child object.
+
+```python
+# parent class
+class Salary:
+    def __init__(self,pay):
+        self.pay=pay
+
+    def get_total(self):
+       return (self.pay*12)
+
+# child class
+class Employee:
+    def __init__(self,bonus, salary):
+        self.bonus=bonus
+
+        # object of class is passed as a parameter in this class.
+        self.obj_salary=salary
+
+    def annual_salary(self):
+        return self.obj_salary.get_total() + self.bonus
+
+# passed to Employee class
+salary = Salary(100)
+
+# child object
+obj_emp=Employee(10, salary)
+
+print (obj_emp.annual_salary())
+----------------------------
+Output:
+1210
+```
