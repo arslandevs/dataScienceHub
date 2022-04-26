@@ -78,3 +78,13 @@ _A list of commonly used Git commands_
 | `git log --summary` | View changes (detailed) |
 | `git log --oneline` | View changes (briefly) |
 | `git diff [source branch] [target branch]` | Preview changes before merging |
+
+
+--------------------------------
+### Adding ssh private key to git agent in windows
+1. Open git bash (Use the Windows search. To find it, type "git bash")
+2. Type cd ~/.ssh. This will take you to the root directory for Git (Likely C:\Users\[YOUR-USER-NAME]\.ssh\ on Windows)
+3. Within the .ssh folder, there should be these two files: **id_rsa** and **id_rsa.pub**.
+4. To create the SSH keys, type ssh-keygen -t rsa -C "your_email@example.com". This will create both id_rsa and id_rsa.pub files.
+5. Now, go and open id_rsa.pub in your favorite text editor.
+6. Copy the contents--exactly as it appears, with no extra spaces or lines--of id_rsa.pub and paste it into GitHub and/or BitBucket under the Account Settings > SSH Keys
