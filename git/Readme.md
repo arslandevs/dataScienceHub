@@ -6,16 +6,16 @@ Git Commands
 </p>
 
 
-_A list of commonly used Git commands_
+## **A list of commonly used Git commands**
 
-### Getting & Creating Projects
+### **Getting & Creating Projects**
 
 | Command | Description |
 | ------- | ----------- |
 | `git init` | Initialize a local Git repository |
 | `git clone ssh://git@github.com/[username]/[repository-name].git` | Create a local copy of a remote repository |
 
-### Basic Snapshotting
+### **Basic Snapshotting**
 
 | Command | Description |
 | ------- | ----------- |
@@ -25,7 +25,7 @@ _A list of commonly used Git commands_
 | `git commit -m "[commit message]"` | Commit changes |
 | `git rm -r [file-name.txt]` | Remove a file (or folder) |
 
-### Branching & Merging
+### **Branching & Merging**
 
 | Command | Description |
 | ------- | ----------- |
@@ -46,7 +46,7 @@ _A list of commonly used Git commands_
 | `git branch -vv`| gives the tracking branch|
 
 
-### Sharing & Updating Projects
+### **Sharing & Updating Projects**
 
 | Command | Description |
 | ------- | ----------- |
@@ -58,7 +58,7 @@ _A list of commonly used Git commands_
 | `git pull [remote] [branch] --allow-unrelated-histories` | Git lets you merge unrelated branches |
 | `git fetch [remote] [branch-name]` | fetches changes to see what others are working on. |
 
-### Remotes
+### **Remotes**
 | Command | Description |
 | ------- | ----------- |
 | `git remote add origin ssh://git@github.com/[username]/[repository-name].git` | Add a remote repository |
@@ -70,7 +70,7 @@ _A list of commonly used Git commands_
 | `git remote show origin`| gives remote details|
 | `git branch -u upstream/foo foo`| make local branch track remote branch | 
 
-### Inspection & Comparison
+### **Inspection & Comparison**
 
 | Command | Description |
 | ------- | ----------- |
@@ -81,10 +81,37 @@ _A list of commonly used Git commands_
 
 
 --------------------------------
-### Adding ssh private key to git agent in windows
+## **Adding ssh private key to git agent in windows**
 1. Open git bash (Use the Windows search. To find it, type "git bash")
 2. Type cd ~/.ssh. This will take you to the root directory for Git (Likely C:\Users\[YOUR-USER-NAME]\.ssh\ on Windows)
 3. Within the .ssh folder, there should be these two files: **id_rsa** and **id_rsa.pub**.
 4. To create the SSH keys, type ssh-keygen -t rsa -C "your_email@example.com". This will create both id_rsa and id_rsa.pub files.
 5. Now, go and open id_rsa.pub in your favorite text editor.
 6. Copy the contents--exactly as it appears, with no extra spaces or lines--of id_rsa.pub and paste it into GitHub and/or BitBucket under the Account Settings > SSH Keys
+
+## **Auto-launching ssh-agent on Git for Windows**
+You can run `ssh-agent` automatically when you open bash or Git shell. Copy the following lines and paste them into your `~/.profile` or `~/.bashrc` file in Git shell:
+```bash
+env=~/.ssh/agent.env
+
+agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
+
+agent_start () {
+    (umask 077; ssh-agent >| "$env")
+    . "$env" >| /dev/null ; }
+
+agent_load_env
+
+# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2=agent not running
+agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+
+if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+    agent_start
+    ssh-add
+elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+    ssh-add
+fi
+
+unset env
+```
+If your private key is not stored in one of the default locations (like `~/.ssh/id_rsa`), you'll need to tell your SSH authentication agent where to find it. To add your key to ssh-agent, type `ssh-add ~/path/to/my_key`.
