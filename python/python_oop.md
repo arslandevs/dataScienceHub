@@ -13,17 +13,41 @@
 7. Making Custom Containers
 8. Encapsulation
 9. Properties in python
+10. Inheritance:**
+11. Method overriding/run time Polymorphism:
+12. Super() function:
+13. Multi-level Inheritance:
+14. Multiple Inheritance:
+15. Diamond Problem
+16. Hierarchical Inheritance:
+17. Abstract Base Class:
+18. Concrete Methods in Abstract Base Classes:
+19. Polymorphism:
+20. Duck typing:
+21. Method Overriding:
+22. Method Overloading:
+23. Operator Overloading:
+24. Namedtuple in Python:
+25. Association:
+26. Composition:
+27. Composition vs Inheritance
+28. Aggregation:
+
+
+<p align='right'>
+<img src='https://github.com/SyedArsalanAmin/Minimal-Flask-Application-using-MVC-design-pattern/blob/master/static/icons/design-thinking.png?raw=true' alt='drawing' width='200' height='200'/>
+</p>
 
 ---
 
-## **1. Pillars of oop:**
+## **1. Pillars of oop:** <a name="Pillars-of-oop"></a>
 
 1. Inheritance.
 2. Polymorphism.
 3. Encapsulation.
 4. Abstraction.
 
-A constructor(**init**) which decides how much particular properties get initialized inside the class.
+A constructor(`__init__`) which decides how much particular properties get initialized inside the class.
 
 ```python
 class Car(): # making a class. Class name should be capital.
@@ -48,7 +72,7 @@ Output:
 The Person drives the car
 ```
 
-## **2. Constructer vs Destructer:**
+## **2. Constructer vs Destructer:** <a name="Pillars-of-oop"></a>
 
 **Constructer:**
 
@@ -586,7 +610,20 @@ Uses:
   - **Hierarchical:** More than one class is inherited from a single parent or base class
   - **Hybrid:** A hybrid inheritance is a combination of more than one types of inheritance.
 
-![image]("https://github.com/SyedArsalanAmin/Graphics/blob/master/images/inheritance.png"?raw=true)
+```mermaid
+flowchart BT
+childClass1--single-->parentClass1;
+
+childClass2--multiple-->parentClass2;
+childClass22-->parentClass2;
+
+childClass3--multi-level-->childClass4;
+childClass4--multi-level-->parentClass3;
+
+childClass5--hierarchical-->parentClass5;
+childClass6-->parentClass5;
+
+```
 
 ```python
 # Animal is the base/parent class.
@@ -1309,3 +1346,19 @@ print (obj_emp.annual_salary())
 Output:
 1210
 ```
+
+## **Exception and Error Handling in Python:**
+
+Errors cannot be handled, while Python exceptions can be handled at the run time.
+
+**1. Try:** It will run the code block in which you expect an error to occur.
+
+**2. Except:** Here, you will define the type of exception you expect in the try block (built-in or custom).
+
+**3. Else:** If there isn't any exception, then this block of code will be executed (consider this as a remedy or a fallback option if you expect a part of your script to produce an exception).
+
+**4. Finally:** Irrespective of whether there is an exception or not, this block of code will always be executed.
+
+<p align='center'>
+<img src='https://github.com/SyedArsalanAmin/Minimal-Flask-Application-using-MVC-design-pattern/blob/master/static/icons/finish.png?raw=true' alt='drawing' width='200' height='200'/>
+</p>
