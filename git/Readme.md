@@ -43,6 +43,8 @@ _A list of commonly used Git commands_
 | `git merge [source branch] [target branch]` | Merge a branch into a target branch |
 | `git stash` | Stash changes in a dirty working directory |
 | `git stash clear` | Remove all stashed entries |
+| `git branch -vv`| gives the tracking branch|
+
 
 ### Sharing & Updating Projects
 
@@ -65,6 +67,7 @@ _A list of commonly used Git commands_
 | `git remote --v` | list all remotes |
 | `git push [remote] --delete [branch name]` | Delete a remote branch |
 | `git remote rm [remote]`| Delete remote from a local repository|
+| `git remote show origin`| gives remote details|
 | `git branch -u upstream/foo foo`| make local branch track remote branch | 
 
 ### Inspection & Comparison
