@@ -65,6 +65,7 @@ _A list of commonly used Git commands_
 | `git remote --v` | list all remotes |
 | `git push [remote] --delete [branch name]` | Delete a remote branch |
 | `git remote rm [remote]`| Delete remote from a local repository|
+| `git branch -u upstream/foo foo`| make local branch track remote branch | 
 
 ### Inspection & Comparison
 
