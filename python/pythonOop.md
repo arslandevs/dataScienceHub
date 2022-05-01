@@ -49,6 +49,8 @@
 
 A constructor(`__init__`) which decides how much particular properties get initialized inside the class.
 
+> **Note:** `__init__` does not return anything.
+
 ```python
 class Car(): # making a class. Class name should be capital.
     def __init__(self, windows, doors, enginetype):#constructer.
