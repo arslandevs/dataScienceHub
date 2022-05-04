@@ -13,7 +13,7 @@
 7. Making Custom Containers
 8. Encapsulation
 9. Properties in python
-10. Inheritance:**
+10. Inheritance:\*\*
 11. Method overriding/run time Polymorphism:
 12. Super() function:
 13. Multi-level Inheritance:
@@ -32,7 +32,6 @@
 26. Composition:
 27. Composition vs Inheritance
 28. Aggregation:
-
 
 <p align='right'>
 <img src='https://github.com/SyedArsalanAmin/Minimal-Flask-Application-using-MVC-design-pattern/blob/master/static/icons/design-thinking.png?raw=true' alt='drawing' width='200' height='200'/>
@@ -1360,7 +1359,3 @@ Errors cannot be handled, while Python exceptions can be handled at the run time
 **3. Else:** If there isn't any exception, then this block of code will be executed (consider this as a remedy or a fallback option if you expect a part of your script to produce an exception).
 
 **4. Finally:** Irrespective of whether there is an exception or not, this block of code will always be executed.
-
-<p align='center'>
-<img src='https://github.com/SyedArsalanAmin/Minimal-Flask-Application-using-MVC-design-pattern/blob/master/static/icons/finish.png?raw=true' alt='drawing' width='200' height='200'/>
-</p>

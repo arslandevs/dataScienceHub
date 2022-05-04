@@ -1,5 +1,7 @@
 # **1. Exploratory Data Analysis(EDA)**
 
+**Author:** Syed Arsalan Amin
+
 ## **Data Science project lifecycle**
 
 ```mermaid
@@ -160,6 +162,7 @@ sns.heatmap(df.isna(), yticklabels=False, cbar=False, cmap='viridis')
 # displaying high priority results
 # Output:
 ```
+
 ![heatMap](https://github.com/nxtbyt/graphics/blob/main/images/miss1.png?raw=true)
 
 ## **2. Numerical Variables:**
@@ -218,6 +221,7 @@ for feature in yearFeature:
 # displaying high priority results
 # Output:
 ```
+
 ![yearSale](https://github.com/nxtbyt/graphics/blob/main/images/year2.png?raw=true)
 
 Plot difference between year feature to year sold with Sale Price you can see the no. of years affected by the sale price.
@@ -240,6 +244,7 @@ for feature in yearFeature:
 # displaying high priority results
 # Output:
 ```
+
 ![yearFeature](https://github.com/nxtbyt/graphics/blob/main/images/year1.png?raw=true)
 
 ### **2.2 Types of Numerical Variables:**
@@ -281,6 +286,7 @@ for feature in discreteFeatures:
 # displaying high priority results
 # Output:
 ```
+
 ![discreteFeatures](https://github.com/nxtbyt/graphics/blob/main/images/discrete1.png?raw=true)
 **2.2.2 Continous Features:**
 
@@ -315,6 +321,7 @@ for feature in continuousFeatures:
 # displaying high priority results
 # Output:
 ```
+
 ![continuousFeatures](https://github.com/nxtbyt/graphics/blob/main/images/dist1.png?raw=true)
 
 ## **3. Distribution of Numerical Variables:**
@@ -347,6 +354,7 @@ for feature in continuousFeatures:
 # displaying high priority results
 # Output:
 ```
+
 ![numericalDistribution](https://github.com/nxtbyt/graphics/blob/main/images/dist%202.png?raw=true)
 
 ## **4. Outliers:**
@@ -371,6 +379,7 @@ for feature in continuousFeatures:
 # displaying high priority results
 # Output:
 ```
+
 ![outlier](https://github.com/nxtbyt/graphics/blob/main/images/outlier1.png?raw=true)
 
 ## **5. Categorical Variables:**
@@ -441,6 +450,7 @@ plt.pie(countryValues[:3], labels=countryNames[:3], autopct='%1.3f%%')
 # displaying high priority results
 # Output:
 ```
+
 ![occurence](https://github.com/nxtbyt/graphics/blob/main/images/occurenceFeatures.png?raw=true)
 
 Give size of each group of the feature.
@@ -510,9 +520,11 @@ for feature in categoricalFeatures:
 # displaying high priority results
 # Output:
 ```
+
 ![categorical1](https://github.com/nxtbyt/graphics/blob/main/images/categorical1.png?raw=true)
 
 ![categorical2](https://github.com/nxtbyt/graphics/blob/main/images/categorical2.png?raw=true)
+
 ## **Other Methods**
 
 ### **Feature Filtering :**
