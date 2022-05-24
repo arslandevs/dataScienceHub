@@ -1,10 +1,8 @@
-Git Commands
-============
+# Git Commands
 
 <p align='right'>
 <img src='https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png?raw=true' alt='drawing' width='100' height='100'/>
 </p>
-
 
 ## **A list of commonly used Git commands**
 
@@ -43,8 +41,8 @@ Git Commands
 | `git merge [source branch] [target branch]`          | Merge a branch into a target branch                     |
 | `git stash`                                          | Stash changes in a dirty working directory              |
 | `git stash clear`                                    | Remove all stashed entries                              |
+| `git stash pop`                                      | bring back the stashed changes                          |
 | `git branch -vv`                                     | gives the tracking branch                               |
-
 
 ### **Sharing & Updating Projects**
 
@@ -55,11 +53,12 @@ Git Commands
 | `git push`                                               | Push changes to remote repository (remembered branch)       |
 | `git pull`                                               | Update local repository to the newest commit                |
 | `git pull [remote] [branch name]`                        | Pull changes from remote repository                         |
+| `git push -f [remote] [branch name]`                     | overwrite the remote with the local changes                 |
 | `git pull [remote] [branch] --allow-unrelated-histories` | Git lets you merge unrelated branches                       |
 | `git fetch [remote] [branch-name]`                       | fetches changes to see what others are working on.          |
 
-
 ### **Remotes**
+
 | Command                                                                           | Description                             |
 | --------------------------------------------------------------------------------- | --------------------------------------- |
 | `git remote add origin ssh://git@github.com/[username]/[repository-name].git`     | Add a remote repository                 |
@@ -73,16 +72,40 @@ Git Commands
 
 ### **Inspection & Comparison**
 
-| Command                                    | Description                    |
-| ------------------------------------------ | ------------------------------ |
-| `git log`                                  | View changes                   |
-| `git log --summary`                        | View changes (detailed)        |
-| `git log --oneline`                        | View changes (briefly)         |
-| `git diff [source branch] [target branch]` | Preview changes before merging |
+| Command                                    | Description                          |
+| ------------------------------------------ | ------------------------------------ |
+| `git log`                                  | View changes                         |
+| `git log --summary`                        | View changes (detailed)              |
+| `git log --oneline`                        | View changes (briefly)               |
+| `git diff [source branch] [target branch]` | Preview changes before merging       |
+| `git rm -r [path to file/folder]`          | Remove files or folders              |
+| `git rm --cached -r [path to file/folder]` | Remove files or folders from history |
+| `git gc`                                   | Cleans repo                          |
+| `git log --graph --decorate --oneline`     | Make a tree to show all history      |
 
+---
 
---------------------------------
+## **Use bfg repo cleaner**
+
+**step-1:**\
+Download the bfg.jar file. And put it in the same folder as the git repository or point to the bfg.jar file in the path.
+
+**step-2:**\
+Run the following command in the terminal:
+The BFG will update your commits and all branches and tags so they are clean, but it doesn't physically delete the unwanted stuff. If you are in the repo folder that also contains bfg.jar file then run.
+
+> `$ java -jar bfg.jar --strip-blobs-bigger-than 100M`
+
+**step-3:**\
+Use the standard `$ git gc` command to strip out the unwanted dirty data, which Git will now recognise as surplus to requirements:
+Make sure you are in the target repo folder.
+
+> `$ git reflog expire --expire=now --all && git gc --prune=now --aggressive`
+
+Now you can `$ git push` to your remote repo.
+
 ## **Adding ssh private key to git agent in windows**
+
 1. Open git bash (Use the Windows search. To find it, type "git bash")
 2. Type cd ~/.ssh. This will take you to the root directory for Git (Likely C:\Users\[YOUR-USER-NAME]\.ssh\ on Windows)
 3. Within the .ssh folder, there should be these two files: **id_rsa** and **id_rsa.pub**.
@@ -91,7 +114,9 @@ Git Commands
 6. Copy the contents--exactly as it appears, with no extra spaces or lines--of id_rsa.pub and paste it into GitHub and/or BitBucket under the Account Settings > SSH Keys
 
 ## **Auto-launching ssh-agent on Git for Windows**
+
 You can run `ssh-agent` automatically when you open bash or Git shell. Copy the following lines and paste them into your `~/.profile` or `~/.bashrc` file in Git shell:
+
 ```bash
 env=~/.ssh/agent.env
 
@@ -115,4 +140,5 @@ fi
 
 unset env
 ```
+
 If your private key is not stored in one of the default locations (like `~/.ssh/id_rsa`), you'll need to tell your SSH authentication agent where to find it. To add your key to ssh-agent, type `ssh-add ~/path/to/my_key`.
