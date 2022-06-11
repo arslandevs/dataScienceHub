@@ -13,3 +13,5 @@ By sharing what we learn and help others, we can make the world a better place.
 2. Databases.
 3. Git.
 4. Python.
+
+Syed Arsalan Amin Ⓒ 2021
